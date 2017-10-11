@@ -5,7 +5,7 @@ using System.Collections;
 public class FadeIn : MonoBehaviour {
 
 	public float fadeInTime;
-
+	
 	private Image fadePanel;
 	private Color currentColor = Color.black;
 
@@ -22,7 +22,7 @@ public class FadeIn : MonoBehaviour {
 			currentColor.a -= alphaChange;
 			fadePanel.color = currentColor;
 		} else {
-			gameObject.SetActive(false);
+			gameObject.SetActive (false);
 		}
 	}
 }

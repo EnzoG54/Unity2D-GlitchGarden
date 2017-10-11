@@ -2,27 +2,28 @@
 using System.Collections;
 
 public class LevelManager : MonoBehaviour {
+
 	public float autoLoadNextLevelAfter;
 
-	void Start(){
-		if (autoLoadNextLevelAfter == 0) {
-			Debug.Log ("Auto load disabled.");
+	void Start () {
+		if (autoLoadNextLevelAfter <= 0) {
+			Debug.Log ("Level auto load disabled, use a positive number in seconds.");
 		} else {
 			Invoke ("LoadNextLevel", autoLoadNextLevelAfter);
 		}
-
 	}
+
 	public void LoadLevel(string name){
-		Debug.Log ("Level load requested for:" + name);
-		Application.LoadLevel(name);
+		Debug.Log ("New Level load: " + name);
+		Application.LoadLevel (name);
 	}
 
 	public void QuitRequest(){
-		Debug.Log ("I want to quit.");
+		Debug.Log ("Quit requested");
 		Application.Quit ();
 	}
-
-	public void LoadNextLevel(){
+	
+	public void LoadNextLevel() {
 		Application.LoadLevel(Application.loadedLevel + 1);
 	}
 }
